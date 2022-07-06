@@ -34,7 +34,7 @@ function agregarTweet(e){
   creatHTML();
 
   // Reiniciar el formulario
-  formulario.reset();
+  formulario.reset(); 
 }
 
 function mostrarError(error){
@@ -70,10 +70,17 @@ function creatHTML(){
 
     })
   }
+  sincronizarStorage();
 }
 
 function limpiarHTML(){
   while( listaTweets.firstChild ){
     listaTweets.removeChild(listaTweets.firstChild);
   };
+}
+
+
+//Agregar los Tweets actualizar a Local Storage
+function sincronizarStorage(){
+  localStorage.setItem('tweets', JSON.stringify(tweets));
 }
