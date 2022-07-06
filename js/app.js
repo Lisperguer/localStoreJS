@@ -8,6 +8,15 @@ let tweets = [];
 eventListeners();
 function eventListeners(){
   formulario.addEventListener("submit", agregarTweet);
+
+  //Cuando el documento esté listo
+
+  document.addEventListener('DOMContentLoaded',() => {
+    //Si marca null (porque se eliminaron los tweets del local storage), asigna un array vacío
+    tweets = JSON.parse(localStorage.getItem('tweets')) || [];
+
+    crearHTML();
+  })
 }
 
 //Funciones
@@ -31,7 +40,7 @@ function agregarTweet(e){
 
   tweets = [...tweets, tweetObj ];
 
-  creatHTML();
+  crearHTML();
 
   // Reiniciar el formulario
   formulario.reset(); 
@@ -53,7 +62,7 @@ function mostrarError(error){
 }
 
 
-function creatHTML(){
+function crearHTML(){
   limpiarHTML();
 
   if(tweets.length > 0){
