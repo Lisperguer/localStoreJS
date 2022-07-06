@@ -33,6 +33,8 @@ function agregarTweet(e){
 
   creatHTML();
 
+  // Reiniciar el formulario
+  formulario.reset();
 }
 
 function mostrarError(error){
